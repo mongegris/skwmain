@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Cliente;
+use App\DataTables\ClientesDataTable;
 use Illuminate\Http\Request;
+
 
 class ClienteController extends Controller
 {
@@ -12,9 +14,9 @@ class ClienteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(ClientesDataTable $dataTable)
     {
-        //
+        return $dataTable->render('grilla',['titulo' => 'Clientes']);
     }
 
     /**
@@ -22,9 +24,10 @@ class ClienteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(ClientesDataTable $dataTable)
     {
         //
+        return $dataTable->render('algo');
     }
 
     /**
