@@ -13,6 +13,8 @@ use Yajra\DataTables\Services\DataTable;
 
 class DefaultDataTable extends DataTable
 {
+    public $rowId = 'id';
+
     public function html()
     {
         return $this->builder()
@@ -23,6 +25,7 @@ class DefaultDataTable extends DataTable
                 "lengthMenu" => [[10, 25, 50,-1] , [10,25,50,"Todos"]],
                 "pageLength" => 10,
                 "language" => ["url" => "//cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json"],
+                "rowId" => $this->rowId
             ]);
     }
 

@@ -7,6 +7,7 @@ use App\DataTables\ClientesDataTable;
 use Illuminate\Http\Request;
 
 
+
 class ClienteController extends Controller
 {
     /**
@@ -14,9 +15,14 @@ class ClienteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index(ClientesDataTable $dataTable)
     {
-        return $dataTable->render('grilla',['titulo' => 'Clientes']);
+        return $dataTable->render('grilla',['titulo' => 'Clientes','scripts' => ['ready/clientes.js']]);
     }
 
     /**

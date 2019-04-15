@@ -48,21 +48,13 @@
         <div class="pull-left image">
           <img src="{{asset('images/avatar5.png')}}" class="img-circle" alt="User Image">
         </div>
-        @guest
+
         <div class="pull-left info">
           <p>{{Auth::user()->name}}</p>
           <!-- Status -->
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
-        @else
-        <div class="pull-left info">
-          <p>{{Auth::user()->name}}</p>
-          <!-- Status -->
-          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
-        </div>
-      </div>
-      @endguest
       <!-- search form (Optional) -->
       <form action="#" method="get" class="sidebar-form">
         <div class="input-group">
@@ -79,8 +71,9 @@
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">HEADER</li>
         <!-- Optionally, you can add icons to the links -->
-        <li><a href="#"><i class="fa fa-file"></i> <span>Posts</span></a></li>
-        
+        <li><a href="/clientes"><i class="fa fa-users"></i> <span>Clientes</span></a></li>
+        <li><a href="/licencias"><i class="fa fa-certificate"></i> <span>Licencias</span></a></li>
+
         @can('isAdmin')
          <li class="active"><a href="{{url('category')}}"><i class="fa fa-microchip"></i> <span>Category</span></a></li>
         @endcan
@@ -130,7 +123,6 @@
     <strong>Copyright &copy; 2016 <a href="#">Company</a>.</strong> All rights reserved.
   </footer>
 </div>
-
 
 
 
