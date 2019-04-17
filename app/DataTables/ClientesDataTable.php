@@ -23,8 +23,10 @@ class ClientesDataTable extends DefaultDataTable
             ->addColumn(
                 'accion',
                 function ($cliente) {
-                    return '<a href="#' . $cliente->id . '"  class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i> Modificar</a> - ' .
-                    '<a href="#' . $cliente->id . '"  class="btn btn-xs btn-danger"><i class="glyphicon glyphicon-erase"></i> Eliminar</a>';
+                    return '<button  class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i> Modificar</button> - ' .
+                    '<button type="button" onclick="javascript:console.log(' . $cliente->id . ')"  
+                        id="eliminar" class="btn btn-xs btn-danger"><i class="glyphicon glyphicon-erase"></i> Eliminar
+                        </button>';
                 });
             /*->editColumn('id',function ($cliente){
                 return '<input type="checkbox" name="clientes_ids[]" value="' . $cliente->id .'">';
@@ -81,7 +83,19 @@ class ClientesDataTable extends DefaultDataTable
 
         ];
     }
-
+    protected function getCustomButtons()
+    {
+        return [
+            [
+                "text" => "Eliminar selección",
+                "action" => "function(e,dt,node,config){ eliminarMasivo(e,dt,node,config)}"
+            ],
+            [
+                "text" => "Listar IDs",
+                "action" => "function(e,dt,node,config){ ListarIDs(e,dt,node,config)}"
+            ]
+        ];
+    }
     /**
      * Get filename for export.
      *

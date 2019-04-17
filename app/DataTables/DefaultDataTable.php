@@ -21,12 +21,15 @@ class DefaultDataTable extends DataTable
             ->columns($this->getColumns())
             ->parameters([
                 'dom' => 'Blfrtip',
-                'buttons' => ['csv', 'excel', 'pdf'],
+                'buttons' => array_merge(['csv', 'excel', 'pdf'], $this->getCustomButtons()),
                 "lengthMenu" => [[10, 25, 50,-1] , [10,25,50,"Todos"]],
                 "pageLength" => 10,
                 "language" => ["url" => "//cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json"],
                 "rowId" => $this->rowId
             ]);
     }
-
+    protected function getCustomButtons()
+    {
+        return array();
+    }
 }

@@ -18,3 +18,17 @@ $(document).ready(function(){
         }
     })*/
 });
+function eliminarMasivo(e,dt,node,config)
+{
+    var seleccion = dt.rows('.selected').data();
+    for(var i = 0 ; i < seleccion.length; i++  )
+    {
+        $(seleccion[i].accion).filter('#eliminar').trigger('click');
+    }
+}
+function ListarIDs(e,dt,node,config)
+{
+    var seleccion = dt.rows('.selected').ids();
+    console.log(seleccion.join(','));
+
+}
