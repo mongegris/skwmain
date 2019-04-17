@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use App\Cliente;
 use App\DataTables\ClientesDataTable;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
+use Yajra\DataTables\Html\Options\Languages\Paginate;
 
 
 class ClienteController extends Controller
@@ -30,10 +31,15 @@ class ClienteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(ClientesDataTable $dataTable)
+    public function create()
     {
         //
-        return $dataTable->render('algo');
+        return view('clientes.create');
+    }
+    public function pruebas()
+    {
+        //
+        return view('algo');
     }
 
     /**
@@ -44,7 +50,7 @@ class ClienteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return $request;
     }
 
     /**

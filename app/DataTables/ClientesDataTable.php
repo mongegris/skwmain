@@ -47,6 +47,7 @@ class ClientesDataTable extends DefaultDataTable
             //->where('id', Auth::user()->id)
             ->orderBy('created_at', 'desc');
 
+
         return $this->applyScopes($query);
     }
 
