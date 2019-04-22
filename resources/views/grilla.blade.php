@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('admin.layaout')
 
 @section('content')
     <h1>Listado de {{$titulo}}</h1>
@@ -25,6 +25,10 @@
         </div>
         <!-- /.modal-dialog -->
     </div>
+    @include('modal.basic',['id' => 'modal-success', 'class' => 'success', 'titulo' => 'Nuevo Cliente'])
+<button type="button" class="btn btn-success" data-toggle="modal" data-url="/clientes/create" data-target="#modal-success">
+    Launch Success Modal
+</button>
 @endsection
 
 @push('scripts')
